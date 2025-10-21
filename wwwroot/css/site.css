@@ -1,0 +1,21 @@
+body, html, .app-root, .main { height: 100%; }
+.app-root { min-height: 100vh; }
+
+
+.sidebar {
+width: 220px;
+min-height: 100vh;
+}
+.sidebar .logo{
+font-weight: 700;
+font-size: 28px;
+}
+.app-header{
+height: 64px;
+}
+.main{ display:flex; flex-direction:column; }
+main { background:#f5f7fb; min-height: calc(100vh - 64px); }
+
+
+/* table adjustments */
+.table thead th { vertical-align: middle; }

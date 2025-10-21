@@ -1,0 +1,59 @@
+﻿@{
+ViewData["Title"] = "Lịch công tác tuần";
+}
+
+
+<div class="card mb-4">
+<div class="card-body">
+<div class="d-flex gap-2 align-items-center mb-3">
+<select class="form-select w-auto">
+<option selected>Năm học</option>
+<option>2024 - 2025</option>
+</select>
+<select class="form-select w-auto">
+<option selected>Tuần</option>
+<option>Tuần 12</option>
+</select>
+<select class="form-select w-auto">
+<option selected>Loại lịch</option>
+<option>Lịch công tác</option>
+</select>
+<div class="ms-auto">
+<button class="btn btn-success">Lưu</button>
+<button class="btn btn-outline-secondary">Tải về</button>
+</div>
+</div>
+
+
+<div class="table-responsive">
+<table class="table table-bordered table-hover align-middle">
+<thead class="table-light">
+<tr>
+<th>Thứ / Ngày</th>
+<th>Thời gian</th>
+<th>Nội dung</th>
+<th>Thành phần</th>
+<th>Địa điểm</th>
+<th>Trạng thái</th>
+<th>Hành động</th>
+</tr>
+</thead>
+<tbody>
+@* Sample row (bạn sẽ thay nội dung sau) *@
+<tr>
+<td>Thứ Hai<br/>20/10/2025</td>
+<td>08:00 - 10:00</td>
+<td>Họp tổ chức ... (nội dung bạn thêm sau)</td>
+<td>Ban quản lý, Phòng CTSV</td>
+<td>Phòng họp A</td>
+<td>Đã duyệt</td>
+<td>
+<button class="btn btn-sm btn-primary">Sửa</button>
+<button class="btn btn-sm btn-danger">Xoá</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
