@@ -20,7 +20,7 @@ Mục tiêu:
 - Phân Quyền Người dùng / Người Quản Lý 
 
 Chia Task:
-- Trí làm phân quyền người dùng
-- Trung đăng ký lịch tuần
-- Lâm làm cơ sở dữ liệu, lưu nội dung lịch tuần
-- Minh làm quản lý lịch tuần
+- Trí làm Controllers 
+- Trung làm Views
+- Lâm làm Models
+- Minh 
