@@ -1,1 +1,109 @@
+// Thư mục Account có 2 file là login.cshtml và Register.cshtml
+// login.cshtml
+@model WebApplication1.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Đăng nhập Hệ thống";
+    // Tệp này không cần layout của Dashboard, nên sử dụng layout cơ bản
+    // hoặc một layout đặc biệt chỉ dành cho Authentication.
+    // Giả sử bạn đang sử dụng _Layout.cshtml mặc định:
+}
 
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-primary text-white text-center">
+                <h4 class="mb-0">Đăng Nhập Hệ Thống</h4>
+            </div>
+            <div class="card-body p-4">
+                
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    
+                    <input type="hidden" asp-for="ReturnUrl" value="@ViewData["ReturnUrl"]" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control" autocomplete="username" />
+                        <span asp-validation-for="Email" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control" autocomplete="current-password" />
+                        <span asp-validation-for="Password" class="text-danger small"></span>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label"></label>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Đăng Nhập
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="card-footer text-center">
+                <p class="mb-1"><a href="#" class="text-muted small">Quên Mật khẩu?</a></p>
+                <p class="mb-0"><a asp-controller="Account" asp-action="Register" class="text-primary small">Đăng ký tài khoản mới</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        // Bắt buộc phải có để hiển thị các lỗi Data Annotations (Required, EmailAddress) phía client
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+// Register.cshtml
+@model WebApplication1.Models.RegisterViewModel // Hoặc namespace của bạn
+@{
+    ViewData["Title"] = "Đăng Ký Tài Khoản User";
+}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1 class="text-center">@ViewData["Title"]</h1>
+        <hr />
+        <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" asp-action="Register" asp-controller="Account">
+            
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            
+            <button type="submit" class="w-100 btn btn-lg btn-primary mt-3">Đăng Ký User</button>
+            
+            <p class="text-center mt-3">
+                <a asp-action="Login">Bạn đã có tài khoản? Đăng nhập</a>
+            </p>
+            
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
